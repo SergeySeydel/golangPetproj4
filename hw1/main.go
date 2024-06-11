@@ -216,7 +216,7 @@ func main() {
 
 	fmt.Println("START OF UPDATE MANY")
 	rUpd2, err := BooksCollection.UpdateMany(ctx,
-		bson.D{{Key: "Copies", Value: bson.D{{Key: "$lt", Value: 5}}}},
+		bson.D{{Key: "Copies", Value: bson.D{{Key: "$gt", Value: 5}}}},
 		bson.D{
 			{Key: "$set", Value: bson.M{"copies": 5}},
 		},

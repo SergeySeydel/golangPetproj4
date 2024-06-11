@@ -1,0 +1,39 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+scalar Time
+
+type Post {
+  _id: String!
+  Title: String!
+  Content: String!
+  Author: String!
+  Hero: String!
+  Published_At: Time!
+  Updated_At: Time!
+}
+ 
+type DeletePostResponse {
+  deletePostId: String!
+}
+
+type Query {
+  GetAllPosts: [Post!]!
+  GetOnePost(id: String!): Post!
+}
+ 
+input NewPost {
+  Title: String!
+  Content: String!
+  Author: String
+  Hero: String
+  Published_At: Time
+  Updated_At: Time
+}
+ 
+type Mutation {
+  CreatePost(input: NewPost!): Post!
+  UpdatePost(id: String!, input: NewPost): Post!
+  DeletePost(id: String!): DeletePostResponse!
+}
